@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <task v-bind:tasks="tasks" @clearCompleted="clearCompleted" @clearAll="clearAllTasks"></task>
+    <task v-bind:tasks="tasks" @clearCompleted="clearCompleted" @clearAll="clearAllTasks" @addTask="addNewTask"></task>
   </div>
 </template>
 
@@ -39,6 +39,15 @@ export default {
     };
   },
   methods: {
+    addNewTask(newTaskTitle) {
+      const newTask = {
+        id: Date.now(), // 使用时间戳作为唯一 ID
+        title: newTaskTitle,
+        completed: false
+      };
+      this.tasks.push(newTask); // 将新任务添加到 tasks 数组
+    },
+    
     clearAllTasks() {
       this.tasks = []; // 清空 tasks
     },

@@ -7,7 +7,7 @@
       </div>
       <!-- form -->
       <div class="form">
-        <input type="text" placeholder="New Task" />
+        <input @click="addTask" type="text" placeholder="New Task" v-model="newTask" />
         <button><i class="fas fa-plus"></i></button>
       </div>
       <!-- task lists -->
@@ -36,10 +36,25 @@
 export default {
   name: "Task",
   props:['tasks'],
+  data() {
+    return {
+      newTask: '' 
+    };
+  },
   computed:{
     pendingTasks() {
       return this.tasks.filter(task => !task.completed).length;
     }
   },
+
+  methods: {
+    addTask() {
+      if (this.newTask.trim()) {
+        // 触发 addTask 事件，并将新任务的标题传递给父组件
+        this.$emit('addTask', this.newTask.trim());
+        this.newTask = ''; // 清空输入框
+      }
+    }
+  }
 };
 </script>
