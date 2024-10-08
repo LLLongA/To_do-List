@@ -7,8 +7,8 @@
       </div>
       <!-- form -->
       <div class="form">
-        <input @click="addTask" type="text" placeholder="New Task" v-model="newTask" />
-        <button><i class="fas fa-plus"></i></button>
+        <input  type="text" placeholder="New Task" v-model="newTask" @keyup.enter="addTask" />
+        <button><i @click="addTask" class="fas fa-plus"></i></button>
       </div>
       <!-- task lists -->
       <div class="taskItems">
