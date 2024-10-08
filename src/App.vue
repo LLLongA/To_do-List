@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <task></task>
+    <task v-bind:tasks="tasks" @clearAll="clearAllTasks"></task>
   </div>
 </template>
 
@@ -17,31 +17,33 @@ export default {
       tasks: [
         {
           id: 1,
-          title: "Learn Vue JS",
-          completed: true,
-        },
-        {
-          id: 2,
           title: "Watch netflix",
           completed: true,
         },
         {
-          id: 3,
+          id: 2,
           title: "Go shopping",
           completed: false,
         },
         {
-          id: 4,
+          id: 3,
           title: "Learn guitar",
           completed: false,
         },
         {
-          id: 5,
+          id: 4,
           title: "Send email",
           completed: false,
         },
       ],
     };
   },
+  methods: {
+    clearAllTasks() {
+      this.tasks = []; // 清空 tasks
+    }
+  }
 };
+
+
 </script>

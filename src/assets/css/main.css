@@ -10,7 +10,7 @@ general
 
 body {
   font: 15px/1.4 "Poppins", sans-serif;
-  background: #4ec5c1;
+  background: #05a3c6;
   color: #333;
 }
 
@@ -29,7 +29,7 @@ input[type="text"] {
   height: 50px;
   font: 15px/1.4 "Poppins", sans-serif;
   padding: 15px;
-  background: #f3f3f3;
+  background: #f4f3ce;
   color: #333;
   border: 1px solid transparent;
   border-radius: 10px;
@@ -67,10 +67,10 @@ task
 ----
 */
 .task {
-  background: #fff;
+  background: #f4f3ce;
   border-radius: 25px;
   padding: 30px;
-  box-shadow: 0px 0px 40px 0px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.1);
 }
 
 .title {
@@ -86,7 +86,7 @@ task
 .form button {
   background: none;
   border: none;
-  color: #4ec5c1;
+  color: #05a3c6;
   font-size: 18px;
   position: absolute;
   top: 50%;
@@ -147,5 +147,5 @@ task items
 }
 
 .taskItems .toggle.toggle-completed {
-  text-decoration:line-through;
+  text-decoration: line-through;
 }
