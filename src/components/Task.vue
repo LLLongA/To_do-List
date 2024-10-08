@@ -21,12 +21,12 @@
       </div>
       <!-- buttons -->
       <div class="clearBtns">
-        <button>Clear completed</button>
+        <button @click="$emit('clearCompleted')">Clear completed</button>
         <button @click="$emit('clearAll')">Clear all</button>
       </div>
       <!-- pending task -->
       <div class="pendingTasks">
-        <span>Pending Tasks: </span>
+        <span>Pending Tasks: {{pendingTasks}} </span>
       </div>
     </div>
   </div>
@@ -36,5 +36,10 @@
 export default {
   name: "Task",
   props:['tasks'],
+  computed:{
+    pendingTasks() {
+      return this.tasks.filter(task => !task.completed).length;
+    }
+  },
 };
 </script>

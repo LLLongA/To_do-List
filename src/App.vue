@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <task v-bind:tasks="tasks" @clearAll="clearAllTasks"></task>
+    <task v-bind:tasks="tasks" @clearCompleted="clearCompleted" @clearAll="clearAllTasks"></task>
   </div>
 </template>
 
@@ -41,6 +41,15 @@ export default {
   methods: {
     clearAllTasks() {
       this.tasks = []; // 清空 tasks
+    },
+    clearCompleted() {
+      // 过滤掉已经完成的任务
+      this.tasks = this.tasks.filter(task => !this.isCompleted(task));
+    },
+    
+    // 判断任务是否完成
+    isCompleted(task) {
+      return task.completed;
     }
   }
 };
