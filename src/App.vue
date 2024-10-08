@@ -41,22 +41,20 @@ export default {
   methods: {
     addNewTask(newTaskTitle) {
       const newTask = {
-        id: Date.now(), // 使用时间戳作为唯一 ID
+        id: Date.now(), 
         title: newTaskTitle,
         completed: false
       };
-      this.tasks.push(newTask); // 将新任务添加到 tasks 数组
+      this.tasks.push(newTask); 
     },
-    
+
     clearAllTasks() {
-      this.tasks = []; // 清空 tasks
+      this.tasks = []; 
     },
     clearCompleted() {
-      // 过滤掉已经完成的任务
       this.tasks = this.tasks.filter(task => !this.isCompleted(task));
     },
     
-    // 判断任务是否完成
     isCompleted(task) {
       return task.completed;
     }
