@@ -7,13 +7,14 @@
       </div>
       <!-- form -->
       <div class="form">
-        <input  type="text" placeholder="New Task" v-model="newTask" @keyup.enter="addTask" />
+        <input type="text" placeholder="New Task" v-model="newTask" @keyup.enter="addTask" />
         <button><i @click="addTask" class="fas fa-plus"></i></button>
       </div>
       <!-- task lists -->
       <div class="taskItems">
         <ul>
-          <task-item v-bind:task="task"     v-for="task in tasks" :key="task.id"></task-item>
+          <task-item v-bind:task="task" v-for="(task, index) in tasks" :key="task.id"
+            @remove="removeTask(index)"></task-item>
         </ul>
       </div>
       <!-- buttons -->
@@ -23,7 +24,7 @@
       </div>
       <!-- pending task -->
       <div class="pendingTasks">
-        <span>Pending Tasks: {{pendingTasks}} </span>
+        <span>Pending Tasks: {{ pendingTasks }} </span>
       </div>
     </div>
   </div>
@@ -35,14 +36,14 @@ import TaskItem from './Task-item.vue';
 
 export default {
   name: "Task",
-  props:['tasks'],
-  components:{TaskItem},
+  props: ['tasks'],
+  components: { TaskItem },
   data() {
     return {
-      newTask: '' 
+      newTask: ''
     };
   },
-  computed:{
+  computed: {
     pendingTasks() {
       return this.tasks.filter(task => !task.completed).length;
     }
@@ -55,6 +56,10 @@ export default {
         this.$emit('addTask', this.newTask.trim());
         this.newTask = ''; // 清空输入框
       }
+    },
+
+    removeTask(index) {
+      this.tasks.splice(index, 1);
     }
   }
 };
