@@ -17,17 +17,17 @@ export default {
       tasks: [
         {
           id: 1,
-          title: "Watch netflix",
+          title: "Prepre Presentation",
           completed: true,
         },
         {
           id: 2,
-          title: "Go shopping",
+          title: "Learn Next.js",
           completed: false,
         },
         {
           id: 3,
-          title: "Learn guitar",
+          title: "Finish Game Assignment",
           completed: false,
         },
         {
@@ -41,20 +41,20 @@ export default {
   methods: {
     addNewTask(newTaskTitle) {
       const newTask = {
-        id: Date.now(), 
+        id: Date.now(),
         title: newTaskTitle,
         completed: false
       };
-      this.tasks.push(newTask); 
+      this.tasks.push(newTask);
     },
 
     clearAllTasks() {
-      this.tasks = []; 
+      this.tasks = [];
     },
     clearCompleted() {
       this.tasks = this.tasks.filter(task => !this.isCompleted(task));
     },
-    
+
     isCompleted(task) {
       return task.completed;
     }
