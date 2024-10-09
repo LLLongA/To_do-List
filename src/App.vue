@@ -22,12 +22,12 @@ export default {
         },
         {
           id: 2,
-          title: "Learn Next.js",
+          title: "Write tests",
           completed: false,
         },
         {
           id: 3,
-          title: "Finish Game Assignment",
+          title: "Finish Game Design",
           completed: false,
         },
         {
